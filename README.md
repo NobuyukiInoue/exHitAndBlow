@@ -9,7 +9,7 @@ https://en.wikipedia.org/wiki/Bulls_and_Cows
 ## Related article
 
 - Elixirでつくるn桁版Hit&Blow(ヌメロン(Numer0n))の出題者側プログラムおよび質問者側プログラム<br>
-https://qiita.com/gx3n-inue/private/2b20aa477fcc7072bee5<br>
+https://qiita.com/gx3n-inue/items/2b20aa477fcc7072bee5<br>
 
 - n桁版Hit&Blow(ヌメロン(Numer0n))の出題者側プログラムおよび質問者側プログラム<br>
 https://qiita.com/gx3n-inue/items/396eddf69fbfa1eacc65<br>
