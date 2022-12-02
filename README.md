@@ -6,21 +6,46 @@ Offence Script solve the number of N digits you have decided.<br>
 https://en.wikipedia.org/wiki/Bulls_and_Cows
 
 
+## Related article
+
+- Elixirでつくるn桁版Hit&Blow(ヌメロン(Numer0n))の出題者側プログラムおよび質問者側プログラム<br>
+https://qiita.com/gx3n-inue/private/2b20aa477fcc7072bee5<br>
+
+- n桁版Hit&Blow(ヌメロン(Numer0n))の出題者側プログラムおよび質問者側プログラム<br>
+https://qiita.com/gx3n-inue/items/396eddf69fbfa1eacc65<br>
+https://github.com/NobuyukiInoue/pyHitAndBlow<br>
+
 ## 1. compile
 
 ```
 mix escript.build
 ```
 
+Running it without any options will show usage.
+
+```
+./main
+Usage)
+./main defence [N [enable_print [answer_number]]]
+./main offence [N [enable_print [answer_number]]]
+./main repeat [repeat_count [N [enable print [answer number]]]]
+
+Example)
+./main defence 4
+./main defence 4 true 0123
+./main offence 4 true 0123
+./main repeat 100 4
+./main repeat 200 5 true
+```
+
 ## 2. offence mode
 
 Auto Caluculate Hit & Blow (Bulls and Cows) Offence mode.
 
-### 2-1. Usage
+### 2-1. usage
 
 ```
-mix escript.build
-./main [defence | offence | repeat] [N [enable print] [answer number]]]
+./main offence [N [enable print] [answer number]]]
 ```
 
 ### 2-2. Options
@@ -199,19 +224,19 @@ my answer number is 9360.
 
 This mode is executes offence continuously and calculates the average value.
 
-#### 4-1-1. Usage.
+#### 4-1. Usage.
 ```
 ./main repeat [repeat_count [N [enable_print [answer_number]]]]
 ```
 
-#### 4-1.2. Options.
+#### 4-2. Options.
 
 |Options|Explanation|
 |-------|-----------|
 N|digits of answer number. (2 <= N <= 10)<br>(default ... 4)
 MAX|repeat count.<br>(default ... 10)
 
-#### 4-1-3. Execution example
+#### 4-3. Execution example
 
 ```
 $ ./main repeat 10 4
