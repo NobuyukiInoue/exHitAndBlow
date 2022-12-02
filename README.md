@@ -256,6 +256,8 @@ input response is Hit = 4, Blow = 0
 [5]  .... 3970 (2, 2)
 [6]  .... 9370 (4, 0)
 
+# Latest Average = 5.4000
+
 ==== ResultCount history =====
 ResultCount[0] = 6
 ResultCount[1] = 7
