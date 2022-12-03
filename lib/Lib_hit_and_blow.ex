@@ -30,20 +30,19 @@ defmodule Lib_hit_and_blow do
   end
 
   @spec create_target_numbers(n :: integer, work_number :: [integer]) :: [integer]
-  def create_target_numbers(n, work_number) do
-    if n == 0 do
-      work_number
-    else
-      target_numbers =
-      for i <- 0..9, not enum_contains(work_number, i) do
-        create_target_numbers(n - 1, work_number ++ [i])
-      end
+  def create_target_numbers(0, work_number) do
+    work_number
+  end
 
-      if n > 1 do
-        Enum.flat_map(target_numbers, fn array -> Enum.filter(array,fn item -> item != 0 end ) end)
-      else
-        target_numbers
-      end
+  def create_target_numbers(n, work_number) do
+    target_numbers =
+    for i <- 0..9, not enum_contains(work_number, i) do
+      create_target_numbers(n - 1, work_number ++ [i])
+    end
+    if n > 1 do
+      Enum.flat_map(target_numbers, fn array -> Enum.filter(array,fn item -> item != 0 end ) end)
+    else
+      target_numbers
     end
   end
 
