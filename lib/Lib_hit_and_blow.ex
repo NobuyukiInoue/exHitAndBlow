@@ -448,7 +448,7 @@ defmodule Lib_hit_and_blow do
       :ok
     else
       {h, b} = Enum.at(history.response, i)
-      "[" <> String.pad_leading(Integer.to_string(i + 1), 4, "0") <> "] "
+      "[" <> Integer.to_string(i + 1) <> "] "
         <> " ... " <> Mylib.intList_to_string_join(Enum.at(history.challenge, i))
         <> " (" <> Integer.to_string(h)
         <> ", " <> Integer.to_string(b)
