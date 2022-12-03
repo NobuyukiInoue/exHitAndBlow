@@ -177,14 +177,14 @@ defmodule Lib_hit_and_blow do
 
   @spec create_canidiate_number(n :: integer, target_numbers :: [[integer]], history :: HistoryRecords) :: [integer]
   def create_canidiate_number(n, target_numbers, history) do
-    index = (:rand.uniform Enum.count(target_numbers)) - 1
+    candidate = Enum.random(target_numbers)
     if history.challenge == [] do
-      Enum.at(target_numbers, index)
+      candidate
     else
-      if enum_contains(history.challenge, Enum.at(target_numbers, index)) do
+      if enum_contains(history.challenge, candidate) do
         create_canidiate_number(n, target_numbers, history)
       else
-        Enum.at(target_numbers, index)
+        candidate
       end
     end
   end
