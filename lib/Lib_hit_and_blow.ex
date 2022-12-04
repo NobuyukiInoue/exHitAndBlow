@@ -190,23 +190,13 @@ defmodule Lib_hit_and_blow do
 
   @spec response_check(n :: integer, answer_number :: [integer], target_number :: [integer]) :: {integer, integer}
   def response_check(n, answer_number, target_number) do
-    response_check(n, answer_number, target_number, 0, 0, 0)
-  end
-
-  @spec response_check(n :: integer, answer_number :: [integer], target_number :: [integer], col :: integer, hit :: integer, blow :: integer) :: {integer, integer}
-  def response_check(n, answer_number, target_number, col, hit, blow) do
-    if col >= n do
-      {hit, blow}
-    else
-      if Enum.at(target_number, col) == Enum.at(answer_number, col) do
-        response_check(n, answer_number, target_number, col + 1, hit + 1, blow)
-      else
-        if enum_contains(answer_number, Enum.at(target_number, col)) do
-          response_check(n, answer_number, target_number, col + 1, hit, blow + 1)
-        else
-          response_check(n, answer_number, target_number, col + 1, hit, blow)
+    for {n, m} <- Enum.zip(answer_number, target_number), reduce: {0, 0} do
+      {hit, blow} ->
+        cond do
+          n == m -> {hit + 1, blow}
+          n in target_number -> {hit, blow + 1}
+          true -> {hit, blow}
         end
-      end
     end
   end
 
