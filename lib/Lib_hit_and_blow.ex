@@ -148,7 +148,7 @@ defmodule Lib_hit_and_blow do
     history = %{history | remaining_count: history.remaining_count ++ [-1]}
     history = %{history | challenge: history.challenge ++ [selected_number]}
 
-    {hit, blow} = response_check(n, answer_number, selected_number)
+    {hit, blow} = response_check(answer_number, selected_number)
 
     history = %{history | response: history.response ++ [{hit, blow}]}
 
@@ -168,7 +168,7 @@ defmodule Lib_hit_and_blow do
   def get_hit_and_blow_count(n, answer_number, selected_number, challenge_count) do
     # input response.
     if not is_nil(answer_number) do
-      response_check(n, answer_number, selected_number)
+      response_check(answer_number, selected_number)
     else
       response_input(n, challenge_count + 1)
     end
@@ -188,8 +188,8 @@ defmodule Lib_hit_and_blow do
     end
   end
 
-  @spec response_check(n :: integer, answer_number :: [integer], target_number :: [integer]) :: {integer, integer}
-  def response_check(n, answer_number, target_number) do
+  @spec response_check(answer_number :: [integer], target_number :: [integer]) :: {integer, integer}
+  def response_check(answer_number, target_number) do
     for {n, m} <- Enum.zip(answer_number, target_number), reduce: {0, 0} do
       {hit, blow} ->
         cond do
