@@ -293,7 +293,7 @@ Total execution time ... 0.034[s]
 
 ## Licence
 
-[MIT](https://github.com/NobuyukiInoue/exHitAndBlow/blob/main/LICENSE)
+[MIT](https://github.com/NobuyukiInoue/exHitAndBlow/blob/main/LICENCE)
 
 
 ## Author
